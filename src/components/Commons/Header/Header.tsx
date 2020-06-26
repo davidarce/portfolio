@@ -12,6 +12,15 @@ const StyledHeader = styled.header`
   width: 100%;
 `;
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #040404;
+  height: 70px;
+  width: 100%;
+`;
+
 const TranslationButton = styled.button`
   font-size: 17px;
   color: #cccccc;
@@ -21,20 +30,6 @@ const TranslationButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 0.1rem;
-
-`;
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #040404;
-  height: 70px;
-  width: 100%;
-
-  @media (max-width: 480px) {
-    height: 50px;
-  }
 `;
 
 export default function Header() {

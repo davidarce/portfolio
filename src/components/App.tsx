@@ -13,17 +13,17 @@ const StyledApp = styled.div`
   grid-template-columns: auto repeat(4, 1fr) auto;
   grid-template-rows: auto 1fr auto;
   gap: 20px;
-  margin: 12px 30px;
+  margin: 0 30px;
   width: auto;
   min-height: 100vh;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    margin: 10px 20px;
+    margin: 0 20px;
   }
 
   @media (max-width: 480px) {
-    margin: 8px 12px;
+    margin: 0 12px;
   }
 
 `;
