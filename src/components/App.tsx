@@ -1,11 +1,38 @@
 import React from 'react';
-import logo from '../logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import { Header } from './Commons/Header';
+import { Footer } from './Commons/Footer';
+import { Home } from './Home';
+
+const StyledApp = styled.div`
+  display: grid;
+  grid-template-areas:
+    'hd hd hd hd hd hd'
+    '. main main main main .'
+    'ft ft ft ft ft ft';
+  grid-template-columns: auto repeat(4, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+  margin: 12px 30px;
+  width: auto;
+  min-height: 100vh;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    margin: 10px 20px;
+  }
+
+  @media (max-width: 480px) {
+    margin: 8px 12px;
+  }
+
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <StyledApp>
+      <Header></Header>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,8 +45,10 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-    </div>
+      </header> */}
+      <Home />
+      <Footer />
+    </StyledApp>
   );
 }
 
