@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EACI,qBAAsB,CACtB,QAAS,CACT,SACF,CAEA,KACE,qCAAuC,CACvC,kBAAmB,CACnB,UACF","file":"main.58598703.chunk.css","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n  }\n\n  body {\n    font-family: 'IBM Plex Mono', monospace;\n    background: #040404;\n    color: white;\n  }"]}
