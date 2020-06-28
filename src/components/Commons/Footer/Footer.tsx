@@ -1,8 +1,13 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { GithubOutline } from '@styled-icons/evaicons-outline/GithubOutline';
 import { TwitterOutline } from '@styled-icons/evaicons-outline/TwitterOutline';
 import { LinkedinOutline } from '@styled-icons/evaicons-outline/LinkedinOutline';
+
+type myFooterProps = {
+  page: string;
+};
 
 const StyledFooter = styled.footer`
   grid-area: ft;
@@ -13,7 +18,8 @@ const StyledFooter = styled.footer`
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ page }: myFooterProps) =>
+    page === 'ABOUT' ? 'flex-start' : 'space-between'};
   background: #040404;
   height: 70px;
   width: 100%;
@@ -21,11 +27,16 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 const StyledSpan = styled.span`
-  color: #808080;
+  color: #cccccc;
   padding: 0 10px;
+  letter-spacing: 1px;
 `;
 
 const SocialMediaContainer = styled.div`
@@ -61,10 +72,14 @@ const StyledLinkeIndIcon = styled(LinkedinOutline)`
 `;
 
 export default function Footer() {
+  let location = useLocation();
+  const currentPage = location.pathname
+    .replace(/^\/([^/]*).*$/, '$1')
+    .toUpperCase();
   return (
     <StyledFooter>
-      <Container>
-        <StyledSpan>Home</StyledSpan>
+      <Container page={currentPage}>
+        <StyledSpan>{currentPage}</StyledSpan>
         <SocialMediaContainer>
           <Link href="https://github.com/davidarce/" target="_blank">
             <StyledGithubIcon />

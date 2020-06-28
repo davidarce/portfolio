@@ -39,7 +39,7 @@ export default function Header() {
     <StyledHeader>
       <Container>
         <BurgerButton open={isOpen} setOpen={setIsOpen} />
-        <Menu open={isOpen} />
+        <Menu open={isOpen}/>
       </Container>
       <TranslationButton>EN</TranslationButton>
     </StyledHeader>

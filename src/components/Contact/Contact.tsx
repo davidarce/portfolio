@@ -3,12 +3,10 @@ import HomeLogo from '../../images/homeLogo.png';
 import styled from 'styled-components';
 
 const StyledHome = styled.div`
-  grid-area: main;
   display: flex;
-  width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: space-around;
+  grid-area: main;
   padding: 0 20px;
   background: #040404;
 

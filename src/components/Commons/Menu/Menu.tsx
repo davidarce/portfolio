@@ -9,6 +9,7 @@ const StyledMenu = styled.nav`
   background: #040404;
   min-height: 100vh;
   width: 100%;
+  z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
@@ -19,7 +20,7 @@ const StyledMenu = styled.nav`
   a {
     margin: 10px 0;
     font-size: 34px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.3rem;

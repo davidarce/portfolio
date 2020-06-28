@@ -1,8 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
 import { Header } from './Commons/Header';
 import { Footer } from './Commons/Footer';
-import { Home } from './Home';
+import { AppRouter } from '../router/AppRouter';
 
 const StyledApp = styled.div`
   display: grid;
@@ -19,35 +20,22 @@ const StyledApp = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    margin: 0 20px;
+    margin: 0 15px;
   }
 
   @media (max-width: 480px) {
     margin: 0 12px;
   }
-
 `;
 
 function App() {
   return (
     <StyledApp>
-      <Header></Header>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Home />
-      <Footer />
+      <Router>
+        <Header />
+        <AppRouter />
+        <Footer />
+      </Router>
     </StyledApp>
   );
 }
