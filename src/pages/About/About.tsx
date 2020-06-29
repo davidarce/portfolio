@@ -118,7 +118,7 @@ function About() {
           My experience includes systems administration, support, e-commerce
           platforms, testing and continuous integration. Curious, proactive,
           goal-oriented and very good at working and collaborating with teams.
-          Has a master’s Degree in Computer and systems engineering.
+          Has a Bachelor’s Degree in Computer and systems engineering.
         </Paragraph>
       </Container>
       <img src={AboutLogo} alt="about logo" />

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { BurgerButton } from '../BurgerButton';
 import { Menu } from '../Menu';
 
 const StyledHeader = styled.header`
@@ -33,13 +32,10 @@ const TranslationButton = styled.button`
 `;
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <StyledHeader>
       <Container>
-        <BurgerButton open={isOpen} setOpen={setIsOpen} />
-        <Menu open={isOpen}/>
+        <Menu/>
       </Container>
       <TranslationButton>EN</TranslationButton>
     </StyledHeader>

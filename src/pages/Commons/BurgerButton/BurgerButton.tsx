@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type myProps = {
   open: boolean;
-  setOpen: (value: boolean) => void;
+  setOpen: () => void;
 };
 
 type myBurgerButtonProps = {
@@ -59,7 +59,7 @@ const StyledBurgerButton = styled.button`
 
 export default function BurgerButton({ open, setOpen }: myProps) {
   return (
-    <StyledBurgerButton open={open} onClick={() => setOpen(!open)} >
+    <StyledBurgerButton open={open} onClick={() => setOpen()} >
       <div />
       <div />
       <div />

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AppContextProvider } from '../context/AppContext';
 import { BrowserRouter as Router } from 'react-router-dom';
-import styled from 'styled-components';
 import { Header } from './Commons/Header';
 import { Footer } from './Commons/Footer';
 import { AppRouter } from '../router/AppRouter';
+import styled from 'styled-components';
 
 const StyledApp = styled.div`
   display: grid;
@@ -29,14 +30,21 @@ const StyledApp = styled.div`
 `;
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toogleOpenMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
   return (
-    <StyledApp>
-      <Router>
-        <Header />
-        <AppRouter />
-        <Footer />
-      </Router>
-    </StyledApp>
+    <AppContextProvider value={{ isMenuOpen, toogleOpenMenu}} >
+      <StyledApp>
+        <Router basename="/portfolio">
+          <Header />
+          <AppRouter />
+          <Footer />
+        </Router>
+      </StyledApp>
+    </AppContextProvider>
   );
 }
 
