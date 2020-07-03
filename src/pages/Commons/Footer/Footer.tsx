@@ -37,6 +37,14 @@ const StyledSpan = styled.span`
   color: #cccccc;
   padding: 0 10px;
   letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const SocialMediaContainer = styled.div`

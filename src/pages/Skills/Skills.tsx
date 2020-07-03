@@ -1,86 +1,142 @@
 import React from 'react';
-import HomeLogo from '../../images/homeLogo.png';
 import styled from 'styled-components';
 
-const StyledHome = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+interface ISkill {
+  name: string;
+  level: string;
+}
+
+type progressBarProps = {
+  fill: string;
+};
+
+const skillsList: ISkill[] = [
+  { name: 'Backend Developer', level: '100%' },
+  { name: 'Frontend Developer', level: '80%' },
+  { name: 'Java', level: '100%' },
+  { name: 'JavaScript', level: '100%' },
+  { name: 'Go', level: '70%' },
+  { name: 'Spring Boot', level: '100%' },
+  { name: 'Nodejs', level: '100%' },
+  { name: 'React', level: '80%' },
+  { name: 'CSS3', level: '80%' },
+  { name: 'RESTful APIs', level: '100%' },
+  { name: 'Microservices', level: '100%' },
+  { name: 'DevOps', level: '80%' },
+  { name: 'Docker', level: '90%' },
+  { name: 'Jenkins', level: '80%' },
+  { name: 'Git', level: '100%' },
+  { name: 'CI/CD', level: '90%' },
+  { name: 'Cloud Computing (AWS, GCP)', level: '70%' },
+  { name: 'Databases (SQL & NoSQL)', level: '90%' },
+  { name: 'Maven', level: '100%' },
+  { name: 'Npm', level: '100%' },
+  { name: 'Gradle', level: '80%' },
+  { name: 'Software testing', level: '100%' },
+  { name: 'Agile software development', level: '100%' },
+  { name: 'Scrum', level: '100%' },
+  { name: 'Design patterns', level: '100%' },
+  { name: 'Ecommerce platforms', level: '90%' },
+  { name: 'Ecommerce platforms', level: '90%' },
+  { name: 'Goal oriented', level: '100%' },
+  { name: 'Working with teams', level: '100%' },
+];
+
+const StyledSkills = styled.div`
   grid-area: main;
-  padding: 0 20px;
-  background: #040404;
-
-  img {
-    width: 45vmin;
-    height: auto;
-    border-radius: 50%;
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    padding: 0 10px;
-
-    img {
-      display: none;
-    }
-  }
-`;
-
-const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   width: 100%;
+  height: 100%;
+  padding: 0 80px;
+  background: #040404;
 
-  h5 {
+  h2 {
     text-transform: uppercase;
-    font-size: 17px;
+    font-size: 34px;
     margin-bottom: 20px;
     font-weight: 400;
-    color: #808080;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 10px;
   }
 `;
 
-const Paragraph = styled.p`
-  margin-bottom: 20px;
-  font-size: 34px;
+const SkillsList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
 
   @media (max-width: 480px) {
-    font-size: 26px;
+    grid-template-columns: 1fr;
   }
 `;
 
-const Button = styled.button`
-  font-family: inherit;
+const SkillContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 5px 0;
+`;
+
+const SkillItem = styled.li`
+  color: #cccccc;
+  font-weight: 400;
   font-size: 17px;
-  background: #040404;
-  color: #ffffff;
-  text-transform: uppercase;
-  outline: none;
-  border: 1px solid #ffffff;
-  padding: 10px;
-  width: 145px;
-  cursor: pointer;
-  &:active {
-    transform: scale(0.95);
+  width: 250px;
+  list-style-type: none;
+
+  @media (max-width: 768px) {
+    width: 150px;
+  }
+
+  @media (max-width: 480px) {
+    width: 140px;
+    font-size: 16px;
   }
 `;
+
+const StyledProgressBar = styled.div`
+  border-radius: 3px;
+  height: 15px;
+  width: 150px;
+  background-color: #808080;
+
+  div {
+    border-radius: 3px;
+    height: 15px;
+    width: ${({ fill }: progressBarProps) => fill};
+    background-color: #ffffff;
+  }
+`;
+
+function ProgressBar({ fill }: any) {
+  return (
+    <StyledProgressBar fill={fill}>
+      <div></div>
+    </StyledProgressBar>
+  );
+}
 
 function Skills() {
   return (
-    <StyledHome>
-      <Container>
-        <h5>{'<Hello world>'}</h5>
-        <Paragraph>
-          My name is David Arce. <br />
-          I'm Backend Developer from Colombia.
-        </Paragraph>
-        <Button>Contact Me</Button>
-      </Container>
-      <img src={HomeLogo} alt="home logo" />
-    </StyledHome>
+    <StyledSkills>
+        <h2>{'My Skills'}</h2>
+        <SkillsList>
+          {skillsList.map((skill: ISkill, index) => (
+            <SkillContainer key={index}>
+              <SkillItem>{skill.name}</SkillItem>
+              <ProgressBar fill={skill.level}> </ProgressBar>
+            </SkillContainer>
+          ))}
+        </SkillsList>
+    </StyledSkills>
   );
 }
 

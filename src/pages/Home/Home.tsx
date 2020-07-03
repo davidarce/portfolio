@@ -42,6 +42,10 @@ const Container = styled.div`
     font-weight: 400;
     color: #808080;
   }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -54,7 +58,7 @@ const Paragraph = styled.p`
   }
 `;
 
-const Button = styled.button`
+const ContactLink = styled.a`
   font-family: inherit;
   font-size: 17px;
   background: #040404;
@@ -64,6 +68,8 @@ const Button = styled.button`
   border: 1px solid #ffffff;
   padding: 10px;
   width: 145px;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   &:active {
     transform: scale(0.95);
@@ -79,7 +85,12 @@ function Home() {
           My name is David Arce. <br />
           I'm Backend Developer from Colombia.
         </Paragraph>
-        <Button>Contact Me</Button>
+        <ContactLink
+          href="mailto:davidarce2915@gmail.com?Subject=Hi%20David"
+          target="_top"
+        >
+          Contact Me
+        </ContactLink>
       </Container>
       <img src={HomeLogo} alt="home logo" />
     </StyledHome>

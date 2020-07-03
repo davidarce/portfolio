@@ -51,11 +51,8 @@ export default function Menu() {
             <Link to="/skills" onClick={() => toogleOpenMenu()}>
               Skills
             </Link>
-            <Link to="/projects " onClick={() => toogleOpenMenu()}>
-              Projects
-            </Link>
-            <Link to="/contact" onClick={() => toogleOpenMenu()}>
-              Contact
+            <Link to="/experience" onClick={() => toogleOpenMenu()}>
+              Experience
             </Link>
           </StyledMenu>
         </>
