@@ -65,6 +65,10 @@ const StyledSkills = styled.div`
     flex-direction: column;
     padding: 0 10px;
   }
+
+  @media (max-width: 480px) {
+    padding: 0;
+  }
 `;
 
 const SkillsList = styled.ul`
@@ -72,7 +76,7 @@ const SkillsList = styled.ul`
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
 
-  @media (max-width: 480px) {
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -83,6 +87,11 @@ const SkillContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 0 5px 0;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    justify-content: flex-start;
+  }
 `;
 
 const SkillItem = styled.li`
@@ -94,6 +103,10 @@ const SkillItem = styled.li`
 
   @media (max-width: 768px) {
     width: 150px;
+  }
+
+  @media (max-width: 767px) {
+    width: 300px;
   }
 
   @media (max-width: 480px) {
@@ -113,6 +126,14 @@ const StyledProgressBar = styled.div`
     height: 15px;
     width: ${({ fill }: progressBarProps) => fill};
     background-color: #ffffff;
+  }
+
+  @media (max-width: 767px) {
+    width: 70%;
+  }
+
+  @media (max-width: 480px) {
+    width: 140px;
   }
 `;
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { LeftArrowAlt } from '@styled-icons/boxicons-solid/LeftArrowAlt';
 import { RightArrowAlt } from '@styled-icons/boxicons-solid/RightArrowAlt';
 
@@ -25,33 +25,27 @@ const CarouselWrapper = styled.div`
   }
 `;
 
+const fade = keyframes`
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+`;
+
 const CarouselSlide = styled.div<ICarouselSlide>`
   flex: 0 0 auto;
-  opacity: ${(props) => (props.active ? 1 : 0)};
-  transition: all 0.5s ease;
+  display: ${(props) => (props.active ? 'block' : 'none')};
+  animation-name: ${fade};
+  animation-duration: 1s;
   width: 100%;
-
-  @media (max-width: 480px) {
-    width: 65%;
-  }
 `;
 
 const CarouselSlides = styled.div<ICarouselProps>`
   display: flex;
   align-items: center;
-  ${(props) => props.currentSlide &&
-    css`
-      transform: translateX(-${props.currentSlide * 100}%);
-    `};
-  transition: all 0.5s ease;
-
-  @media (max-width: 480px) {
-    align-items: flex-start;
-    ${(props) => props.currentSlide &&
-    css`
-      transform: translateX(-${props.currentSlide * 65}%);
-    `};
-  }
 `;
 
 const StyledIcon = css`
@@ -99,7 +93,6 @@ const ControlButtons = styled.div`
   @media (max-width: 480px) {
     margin-top: 20px;
   }
-  
 `;
 
 const ControlButton = styled.button`
